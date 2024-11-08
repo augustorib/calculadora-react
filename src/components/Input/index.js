@@ -1,10 +1,11 @@
+import { InputContainer } from "./styles";
 
 const Input = () => {
     return (
-      <div className="App">
-         button
-      </div>
-    );
+      <InputContainer>
+         <input />
+      </InputContainer>
+    );  
   }
   
   export default Input;
