@@ -19,11 +19,5 @@ export const Content = styled.div`
 export const Row = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: center;
-`
-
-export const Column = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    
 `

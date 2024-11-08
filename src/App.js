@@ -43,6 +43,31 @@ const App = () => {
     }
   }
 
+  const handleMultiplicationNumbers = () =>{
+    if(firstNumber == '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('x');
+    }else {
+        const sum = Number(firstNumber) * Number(currentNumber);
+        setCurrentNumber(String(sum));
+        setOperation('');
+        
+    }
+  }
+
+  const handleDivisionNumbers = () =>{
+    if(firstNumber == '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('/');
+    }else {
+        const sum = Number(firstNumber) / Number(currentNumber);
+        setCurrentNumber(String(sum));
+        setOperation('');
+    }
+  }
+
   const handleEquals = () =>{
 
     if(firstNumber != '0' && operation != '' && currentNumber != '0'){
@@ -52,6 +77,12 @@ const App = () => {
           break;
         case '-':
           handleMinusNumbers();
+          break;
+        case 'x':
+          handleMultiplicationNumbers();
+          break;
+        case '/':
+          handleDivisionNumbers();
           break;
         default:
           break;
@@ -65,9 +96,9 @@ const App = () => {
     <Content>       
        <Input value={currentNumber} />
        <Row>
-        <Button label="x"/>
-        <Button label="/"/>
-        <Button label="c" onClick={handleOnClear}/>
+        <Button label="x" onClick={handleMultiplicationNumbers} />
+        <Button label="/" onClick={handleDivisionNumbers} />
+        <Button label="c" onClick={handleOnClear} />
         <Button label="."/>  
        </Row>
        <Row>
@@ -87,6 +118,12 @@ const App = () => {
         <Button label="2" onClick={() => handleAddNumber('2')} />
         <Button label="3" onClick={() => handleAddNumber('3')} />
         <Button label="=" onClick={handleEquals} />
+       </Row>
+       <Row>
+        <Button label=""  />
+        <Button label="0" onClick={() => handleAddNumber('0')} />
+        <Button label=""  />
+        <Button label=""  />
        </Row>
     </Content>
    </Container>
